@@ -14,14 +14,12 @@ module.exports = StyleSheet.create({
         height: null,
     },
     iosShadow: {
-        flex: 1,
         width: (deviceWidth/4),
         height:  (deviceHeight/4),
         alignSelf: 'center',
         marginTop: (deviceHeight/5) ,
     },
     aShadow: {
-        flex: 1,
         width:  (deviceWidth/4) + 2,
         height: (deviceHeight/4) + 2,
         padding: 20,
