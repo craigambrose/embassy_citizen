@@ -1,4 +1,4 @@
-rootProject.name = 'FlatApp'
+rootProject.name = 'EmbassyCitizen'
 
 include ':app'
 include ':react-native-vector-icons'

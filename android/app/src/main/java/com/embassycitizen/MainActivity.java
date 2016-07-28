@@ -1,4 +1,4 @@
-package com.flatapp;
+package com.embassycitizen;
 
 import com.facebook.react.ReactActivity;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -17,7 +17,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "FlatApp";
+        return "EmbassyCitizen";
     }
 
     /**
