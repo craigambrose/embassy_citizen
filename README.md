@@ -1,11 +1,6 @@
-## React Native Flat App Theme - Seed
+## EmbassyCitizen
 
-Thanks for purchasing the React Native Flat App Theme.
-
-We provide you Flat App Theme along with its Seed Version.
-
-A project that you can install on the fly to get the basic plumping of React Native Flat App Theme using React Native and NativeBase.
-
+We started by  purchasing the React Native Flat App Theme.
 
 Follow the documentation to install and get started with the development:
 
