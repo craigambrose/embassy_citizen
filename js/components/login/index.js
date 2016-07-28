@@ -28,7 +28,7 @@ class Login extends Component {
             theme: React.PropTypes.object,
         }
     }
-   
+
     componentWillMount () {
         Keyboard.addListener('keyboardWillShow', this.keyboardWillShow.bind(this))
         Keyboard.addListener('keyboardWillHide', this.keyboardWillHide.bind(this))
@@ -51,6 +51,10 @@ class Login extends Component {
         this.props.pushNewRoute(route);
     }
 
+    submitLogin() {
+      console.log("clicked the login submit")
+    }
+
     render() {
         return (
             <Container>
@@ -67,11 +71,11 @@ class Login extends Component {
                                     <Icon name="ios-unlock-outline" />
                                     <Input placeholder="Password" secureTextEntry={true}  style={styles.input}/>
                                 </InputGroup>
-                            
-                                <Button rounded primary block large style={styles.loginBtn}  textStyle={Platform.OS === 'android' ? {marginTop: 5,fontSize: 16} : {fontSize: 16,marginTop: -10,fontWeight: '900'}}  onPress={() => this.replaceRoute('home')}>
+
+                                <Button rounded primary block large style={styles.loginBtn}  textStyle={Platform.OS === 'android' ? {marginTop: 5,fontSize: 16} : {fontSize: 16,marginTop: -10,fontWeight: '900'}}  onPress={() => this.submitLogin()}>
                                     Get Started
                                 </Button>
-                            
+
                                 <View style={Platform.OS === 'android' ? styles.aOtherLinksContainer : styles.iosOtherLinksContainer}>
                                     <Grid>
                                         <Col>
