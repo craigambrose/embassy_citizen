@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Keyboard, Dimensions, Image, Platform} from 'react-native';
 import {pushNewRoute, replaceRoute} from '../../actions/route';
-import {openDrawer} from '../../actions/drawer';
+import {attemptLogin} from '../../actions/auth';
 
 import {Container, Content, Text, InputGroup, Input, Button, Icon, View} from 'native-base';
 import {Grid, Col, Row} from "react-native-easy-grid";
@@ -54,7 +54,7 @@ class Login extends Component {
 
     submitLogin() {
       console.log("clicked the login submit");
-      this.props.openDrawer();
+      this.props.attemptLogin();
       // this.replaceRoute('home');
     }
 
@@ -111,7 +111,7 @@ function bindActions(dispatch){
     return {
         replaceRoute:(route)=>dispatch(replaceRoute(route)),
         pushNewRoute:(route)=>dispatch(pushNewRoute(route)),
-        openDrawer:()=>dispatch(openDrawer())
+        attemptLogin:()=>dispatch(attemptLogin())
     }
 }
 
