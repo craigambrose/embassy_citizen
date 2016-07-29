@@ -38,17 +38,19 @@ export function loginUserFailure(error) {
   }
 }
 
+const loginEndpointURL = "https://embassynetwork.com/api-token-auth/"
+
 export function loginUser(email, password, redirect="/") {
     return function(dispatch) {
         dispatch(loginUserRequest());
-        return fetch('http://localhost:3000/auth/getToken/', {
+        return fetch(loginEndpointURL, {
             method: 'post',
             credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-                body: JSON.stringify({email: email, password: password})
+                body: JSON.stringify({username: email, password: password})
             })
             .then(checkHttpStatus)
             .then(parseJSON)
