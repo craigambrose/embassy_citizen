@@ -6,7 +6,7 @@ import {Keyboard, Dimensions, Image, Platform} from 'react-native';
 import {pushNewRoute, replaceRoute} from '../../actions/route';
 import {attemptLogin} from '../../actions/auth';
 
-import {Container, Content, Text, InputGroup, Input, Button, Icon, View} from 'native-base';
+import {Container, Content, Text, InputGroup, Input, TextInput, Button, Icon, View} from 'native-base';
 import {Grid, Col, Row} from "react-native-easy-grid";
 
 import login from './login-theme';
@@ -53,8 +53,7 @@ class Login extends Component {
     }
 
     submitLogin() {
-      console.log("clicked the login submit");
-      this.props.attemptLogin();
+      this.props.attemptLogin(this.state.email, this.state.password);
       // this.replaceRoute('home');
     }
 
@@ -68,11 +67,11 @@ class Login extends Component {
                             <View style={ Platform.OS === 'android' ? styles.abg : styles.bg}>
                                 <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
                                     <Icon name="ios-person-outline" />
-                                    <Input placeholder="Username"  style={styles.input}/>
+                                    <Input placeholder="Email" style={styles.input} keyboardType="email-address" value={this.state.email} onChangeText={email => this.setState({email})} />
                                 </InputGroup>
                                 <InputGroup borderType="rounded" style={[Platform.OS === 'android' ? styles.inputGrp : styles.iosInputGrp, {borderWidth: 0, paddingLeft: 15}]}>
                                     <Icon name="ios-unlock-outline" />
-                                    <Input placeholder="Password" secureTextEntry={true}  style={styles.input}/>
+                                    <Input placeholder="Password" secureTextEntry={true} style={styles.input} onChangeText={password => this.setState({password})}/>
                                 </InputGroup>
 
                                 <Button rounded primary block large style={styles.loginBtn}  textStyle={Platform.OS === 'android' ? {marginTop: 5,fontSize: 16} : {fontSize: 16,marginTop: -10,fontWeight: '900'}}  onPress={() => this.submitLogin()}>
@@ -111,7 +110,7 @@ function bindActions(dispatch){
     return {
         replaceRoute:(route)=>dispatch(replaceRoute(route)),
         pushNewRoute:(route)=>dispatch(pushNewRoute(route)),
-        attemptLogin:()=>dispatch(attemptLogin())
+        attemptLogin:(email, password)=>dispatch(attemptLogin(email, password))
     }
 }
 

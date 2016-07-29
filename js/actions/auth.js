@@ -8,8 +8,10 @@ import type {Action} from './types';
 
 export const ATTEMPT_LOGIN = "ATTEMPT_LOGIN";
 
-export function attemptLogin():Action {
+export function attemptLogin(email, password):Action {
   return {
-    type: ATTEMPT_LOGIN
+    type: ATTEMPT_LOGIN,
+    email: email,
+    password: password
   }
 }

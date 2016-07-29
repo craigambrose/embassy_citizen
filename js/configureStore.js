@@ -17,11 +17,15 @@ export default function configureStore(onCompletion:()=>void):any {
 	const enhancer = compose(
 		applyMiddleware(thunk, promise),
 		autoRehydrate(),
-		devTools(),
+		devTools({
+			realtime: true,
+			hostname: 'localhost',
+			port: 8000
+		}),
 	);
-	
+
 	let store = createStore(reducer, enhancer);
 	persistStore(store, {storage: AsyncStorage}, onCompletion);
-	
+
 	return store
 }
