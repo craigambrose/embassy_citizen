@@ -82,24 +82,7 @@ class Login extends Component {
                                     Get Started
                                 </Button>
 
-                                <View style={Platform.OS === 'android' ? styles.aOtherLinksContainer : styles.iosOtherLinksContainer}>
-                                    <Grid>
-                                        <Col>
-                                            <Button transparent style={{alignSelf: 'flex-start'}}>
-                                                <Text style={styles.helpBtns}>
-                                                    Create Account
-                                                </Text>
-                                            </Button>
-                                        </Col>
-                                        <Col>
-                                            <Button transparent style={{alignSelf: 'flex-end'}}>
-                                                <Text style={styles.helpBtns}>
-                                                    Need Help?
-                                                </Text>
-                                            </Button>
-                                        </Col>
-                                    </Grid>
-                                </View>
+                                {this.props.statusText ? <Text>{this.props.statusText}</Text> : null}
                             </View>
                         </Image>
                     </View>
