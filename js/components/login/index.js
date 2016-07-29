@@ -73,7 +73,12 @@ class Login extends Component {
                                     <Input placeholder="Password" secureTextEntry={true} style={styles.input} onChangeText={password => this.setState({password})}/>
                                 </InputGroup>
 
-                                <Button rounded primary block large style={styles.loginBtn}  textStyle={Platform.OS === 'android' ? {marginTop: 5,fontSize: 16} : {fontSize: 16,marginTop: -10,fontWeight: '900'}}  onPress={() => this.submitLogin()}>
+                                <Button rounded block large
+                                  primary={!this.props.isAuthenticating}
+                                  bordered={this.props.isAuthenticating}
+                                  style={styles.loginBtn}
+                                  textStyle={Platform.OS === 'android' ? {marginTop: 5,fontSize: 16} : {fontSize: 16,marginTop: -10,fontWeight: '900'}}
+                                  onPress={() => this.submitLogin()}>
                                     Get Started
                                 </Button>
 
@@ -104,6 +109,10 @@ class Login extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+  isAuthenticating   : state.auth.isAuthenticating,
+  statusText         : state.auth.statusText
+});
 
 function bindActions(dispatch){
     return {
@@ -113,4 +122,4 @@ function bindActions(dispatch){
     }
 }
 
-export default connect(null, bindActions)(Login);
+export default connect(mapStateToProps, bindActions)(Login);
