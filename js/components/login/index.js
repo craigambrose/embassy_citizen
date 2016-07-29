@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Keyboard, Dimensions, Image, Platform} from 'react-native';
 import {pushNewRoute, replaceRoute} from '../../actions/route';
-import {loginUser} from '../../actions/auth';
+import {loginUser} from '../../auth/actions';
 
 import {Container, Content, Text, InputGroup, Input, TextInput, Button, Icon, View} from 'native-base';
 import {Grid, Col, Row} from "react-native-easy-grid";

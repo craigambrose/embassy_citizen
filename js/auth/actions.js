@@ -1,16 +1,13 @@
 /**
- * Login related actions
+ * Athentication related actions
  * @flow
  */
 
 'use strict';
 import type {Action} from './types';
-import { checkHttpStatus, parseJSON } from '../utils';
+import { checkHttpStatus, parseJSON } from './utils';
 import jwtDecode from 'jwt-decode';
-
-export const LOGIN_USER_REQUEST = "ATTEMPT_LOGIN";
-export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
-export const LOGIN_USER_FAILURE = "LOGIN_USER_FAILURE";
+import {LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE} from './constants'
 
 export function loginUserRequest() {
   return {
