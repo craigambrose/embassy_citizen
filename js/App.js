@@ -63,26 +63,26 @@ class App extends Component {
         // Prompt the user when an update is available
         // and then display a "downloading" modal
 
-        CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
-          (status) => {
-              switch (status) {
-                  case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
-                      this.setState({showDownloadingModal: true});
-                      this.refs.modal.open();
-                      break;
-                  case CodePush.SyncStatus.INSTALLING_UPDATE:
-                      this.setState({showInstalling: true});
-                      break;
-                  case CodePush.SyncStatus.UPDATE_INSTALLED:
-                      this.refs.modal.close();
-                      this.setState({showDownloadingModal: false});
-                      break;
-              }
-          },
-          ({ receivedBytes, totalBytes, }) => {
-            this.setState({downloadProgress: receivedBytes / totalBytes * 100});
-          }
-        );
+        // CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
+        //   (status) => {
+        //       switch (status) {
+        //           case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
+        //               this.setState({showDownloadingModal: true});
+        //               this.refs.modal.open();
+        //               break;
+        //           case CodePush.SyncStatus.INSTALLING_UPDATE:
+        //               this.setState({showInstalling: true});
+        //               break;
+        //           case CodePush.SyncStatus.UPDATE_INSTALLED:
+        //               this.refs.modal.close();
+        //               this.setState({showDownloadingModal: false});
+        //               break;
+        //       }
+        //   },
+        //   ({ receivedBytes, totalBytes, }) => {
+        //     this.setState({downloadProgress: receivedBytes / totalBytes * 100});
+        //   }
+        // );
     }
 
     render() {
