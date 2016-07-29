@@ -6,6 +6,7 @@
 'use strict';
 import type {Action} from './types';
 import { checkHttpStatus, parseJSON } from '../utils';
+import jwtDecode from 'jwt-decode';
 
 export const LOGIN_USER_REQUEST = "ATTEMPT_LOGIN";
 export const LOGIN_USER_SUCCESS = "LOGIN_USER_SUCCESS";
@@ -58,12 +59,12 @@ export function loginUser(email, password, redirect="/") {
                 try {
                     let decoded = jwtDecode(response.token);
                     dispatch(loginUserSuccess(response.token));
-                    dispatch(pushState(null, redirect));
+                    // dispatch(pushState(null, redirect));
                 } catch (e) {
                     dispatch(loginUserFailure({
                         response: {
                             status: 403,
-                            statusText: 'Invalid token'
+                            statusText: e.message
                         }
                     }));
                 }
