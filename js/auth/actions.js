@@ -9,13 +9,15 @@ import { checkHttpStatus, parseJSON } from './utils';
 import jwtDecode from 'jwt-decode';
 import {LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE} from './constants'
 
+import {replaceRoute} from '../actions/route';
+
 export function loginUserRequest() {
   return {
     type: LOGIN_USER_REQUEST
   }
 }
 
-export function loginUserSuccess(token) {
+export function loginUserSuccess(token, decodedToken) {
   // localStorage.setItem('token', token);
   return {
     type: LOGIN_USER_SUCCESS,
@@ -55,8 +57,8 @@ export function loginUser(email, password, redirect="/") {
             .then(response => {
                 try {
                     let decoded = jwtDecode(response.token);
-                    dispatch(loginUserSuccess(response.token));
-                    // dispatch(pushState(null, redirect));
+                    dispatch(loginUserSuccess(response.token, decoded));
+                    dispatch(replaceRoute("home"));
                 } catch (e) {
                     dispatch(loginUserFailure({
                         response: {
