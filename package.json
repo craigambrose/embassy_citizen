@@ -11,13 +11,13 @@
     "jwt-decode": "^2.1.0",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
-    "native-base": "0.5.2",
-    "react": "15.2.1",
+    "native-base": "0.5.7",
+    "react": "15.3.1",
     "react-motion": "^0.4.4",
-    "react-native": "^0.30.0",
+    "react-native": "^0.32.0",
     "react-native-animatable": "^0.6.1",
     "react-native-button": "^1.6.0",
-    "react-native-code-push": "^1.13.5-beta",
+    "react-native-code-push": "^1.14.5-beta",
     "react-native-easy-grid": "^0.1.6",
     "react-native-gifted-spinner": "0.1.0",
     "react-native-lightbox": "^0.6.0",
@@ -37,9 +37,9 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^2.5.3",
-    "remote-redux-devtools": "^0.3.3",
-    "remote-redux-devtools-on-debugger": "^0.5.2",
+    "mocha": "^3.0.2",
+    "remote-redux-devtools": "^0.4.6",
+    "remote-redux-devtools-on-debugger": "^0.6.2",
     "remotedev-server": "^0.1.3"
   }
 }
